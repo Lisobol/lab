@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{# Подставится вместо блока title в базовом шаблоне #}
+{% block title %}3аказы{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for order in orders %}
+        <li>
+            <a href="{% url 'order_url' order.id %}">
+{#                {% include 'orders.html' with element=order %}#}
+                {% if order.id == 1 %}
+                    <div>1.</div>
+                {% elif order.id == 2 %}
+                    <div>2.</div>}
+                {% elif order.id == 3 %}
+                    <div>3.</div>
+                {% endif %}
+                {{ order.title }}
+            </a>
+        </li>
+        {% empty %}
+            <li>пустой cписок</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
