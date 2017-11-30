@@ -22,19 +22,19 @@ with open('G:\РИП\lab4-master\lab4-master\data_light_cp1251.json') as f:
 # При этом строки должны быть не длиннее 80 символов
 
 
-@print_result
+#@print_result
 def f1(arg):
     return list(set([((arg[i]['job-name']).lower()) for i in range(len(arg))]))
 
 f1(data)
 
 
-@print_result
+#@print_result
 def f2(arg):
     return list(filter((lambda x: x if x.startswith("программист") else None),arg))
 
 
-@print_result
+#@print_result
 def f3(arg):
     return list(map(lambda x:x+' c опытом Python', arg))
 
@@ -48,5 +48,19 @@ def f4(arg):
 
 with timer():
     f4(f3(f2(f1(data))))
-
-
+# a=[1,2,3,4,5]
+# @print_result
+# def f5(arg):
+#     a=[1,2,3,4,5]
+#     return list(map(lambda x:x**3,a))
+#
+# f5(a)
+#
+#
+# @print_result
+# def f6(arg):
+#     a=[x**3 for x in arg]
+#     return a
+#
+#
+# f6(a)

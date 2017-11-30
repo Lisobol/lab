@@ -1,11 +1,11 @@
 import base_client
 import requests
 import matplotlib.pyplot as plt
-import jjj
+import Main
 from datetime import datetime
 class getfr(base_client.BaseClient):
     def _get_data(self, method, http_method,):
-        response = requests.get('https://api.vk.com/method/'+method, params={'user_id': jjj.userid, 'fields': 'bdate',})
+        response = requests.get('https://api.vk.com/method/' + method, params={'user_id': Main.userid, 'fields': 'bdate', })
         return self.response_handler(response)
     def response_handler(self, response):
         try:

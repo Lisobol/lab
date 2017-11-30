@@ -1,9 +1,9 @@
 import base_client
 import requests
-import jjj
+import Main
 class getid(base_client.BaseClient):
     def _get_data(self, method, http_method,):
-        response = requests.get('https://api.vk.com/method/'+method, params={'user_ids': jjj.id ,'fields': 'bdate',})
+        response = requests.get('https://api.vk.com/method/' + method, params={'user_ids': Main.id , 'fields': 'bdate', })
         return self.response_handler(response)
     def response_handler(self, response):
         try:
