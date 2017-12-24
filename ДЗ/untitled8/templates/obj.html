@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% csrf_token %}
 {% block title %}Team{% endblock %}
+{% block userlog %}<p class="text-primary">User: <span class="glyphicon glyphicon-user "></span>{{ user.username }}</p>​{% endblock %}
 {% block content %}
     <div class="jumbotron">
         <div class="container">

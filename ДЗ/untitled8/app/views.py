@@ -10,8 +10,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def main(request):
+    user = request.user
     par = {
-        'header': 'Main page'
+        'header': 'Main page',
+        'user': user
+
     }
     return render(request, 'MainPage.html', context=par)
 
@@ -200,6 +203,8 @@ def new_item(request):
         rating = request.POST.get('rating')
         if not rating:
             errors['rating'] = 'Введите рейтинг'
+        if Team.objects.filter(rating=rating).exists():
+            errors['rating'] = 'Команда с таким значением рейтинга уже существует'
 
         sport = request.POST.get('sport')
         if not sport:
